@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Find inspiring song</title>
+    <link rel="stylesheet" href="{{ url_for('static',
+            filename='style.css') }}">
+  </head>
+  <body>
+    <h3>Song Lyrics:</h3>
+    <div>{{ content }}</div>
+    <h3>Prediction:</h3>
+    <div>This song is <strong>{{ prediction }}</strong>
+                  (probability: {{ probability }}%).
+    </div>
+
+    <div id='button'>
+            <form action="/thanks" method="post">
+                    <input type="submit" value="Inspiring" name="feedback_button">
+                    <input type="submit" value="depressing" name="feedback_button">
+                    <input type="hidden" value="{{ prediction }}" name='prediction'>
+                    <input type="hidden" value="{{ content }}" name="lyrics">
+            </form>
+    </div>
+
+    <div id="button">
+      <form action="/">
+        <input type="submit" value="Check another song">
+      </form>
+    </div>
+  </body>
+
+</html>

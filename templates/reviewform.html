@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Find Inspiring Songs</title>
+  </head>
+  <body>
+    <h2>Please enter Lyrics of song:</h2>
+    {% from "_formhelpers.html" import render_field %}
+    <form action="/inspire" method="post">
+      <dl>
+        {{ render_field (form.songtype, cols='30', rows='15') }}
+      </dl>
+      <div>
+        <input type=submit name="submit_btn" value="Submit lyrics">
+      </div>
+
+    </form>
+  </body>
+</html>
